@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/taskListFragment">
+
+    <fragment
+        android:id="@+id/createNewTaskFragment"
+        android:name="com.example.todolist.CreateNewTaskFragment"
+        android:label="Create new task"
+        tools:layout="@layout/fragment_create_new_task" >
+        <action
+            android:id="@+id/action_createNewTaskFragment_to_taskListFragment2"
+            app:destination="@id/taskListFragment" />
+        <action
+            android:id="@+id/action_createNewTaskFragment_to_taskListFragment3"
+            app:destination="@id/taskListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.example.todolist.ui.fragments.TaskListFragment"
+        android:label="Task list"
+        tools:layout="@layout/fragment_task_list" >
+        <action
+            android:id="@+id/action_taskListFragment_to_updateTaskFragment2"
+            app:destination="@id/updateTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_createNewTaskFragment2"
+            app:destination="@id/createNewTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateTaskFragment"
+        android:name="com.example.todolist.ui.fragments.UpdateTaskFragment"
+        android:label="Edit task"
+        tools:layout="@layout/fragment_update_task" >
+        <action
+            android:id="@+id/action_updateTaskFragment_to_taskListFragment2"
+            app:destination="@id/taskListFragment" />
+        <argument
+            android:name="task"
+            app:argType="com.example.todolist.model.Task" />
+    </fragment>
+</navigation>
